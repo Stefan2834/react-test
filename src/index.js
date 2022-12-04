@@ -1,17 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
+import React from 'react'; 
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js'
+import Profile from './Profile.js'
+import AddProfile from './AddProfile.js'
+import Gestionare from './Gestionare.js'
+import Manage from './Manage.js'
+import Main from './Main/Main.js'
+
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+export const RenderDefault = () => {
+  root.render(<App render={Profile} manage={Gestionare} />) 
+}
+export const RenderAdd = () => {
+  root.render(<App render={AddProfile} manage={AddProfile} />)
+}
+export const RenderManage = () => {
+  root.render(<App manage={Manage}/>);
+}
+export const RenderMain = () => {
+  root.render(<App render={Main} manage={Gestionare}/>);
+}
+RenderDefault();
